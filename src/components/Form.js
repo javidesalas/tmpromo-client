@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
-import { Formik, Form, useField } from "formik";
+import { Formik, Form, useFormikContext, useField } from "formik";
 import * as Yup from "yup";
 
+import FormService from "../services/form.services";
+import Uploader from "./Uploader";
 //import "./styles.css";
 
 const validationSchema = Yup.object().shape({
@@ -47,13 +50,13 @@ const validationSchema = Yup.object().shape({
 const MyTextInput = ({ label, ...props }) => {
 	const [field, meta] = useField(props);
 	return (
-		<>
+		<div>
 			<label htmlFor={props.id || props.name}>{label}</label>
 			<input className="text-input" {...field} {...props} />
 			{meta.touched && meta.error ? (
 				<div className="error">{meta.error}</div>
 			) : null}
-		</>
+		</div>
 	);
 };
 
@@ -85,7 +88,29 @@ const MySelect = ({ label, ...props }) => {
 	);
 };
 
+const MyUrl = (props) => {
+	const { setFieldValue } = useFormikContext();
+	const [field, meta] = useField(props);
+
+	React.useEffect(() => {
+		setFieldValue(props.name, props.imageurl);
+	}, [props.imageurl, props.name]);
+
+	return (
+		<>
+			<input {...props} {...field} />
+		</>
+	);
+};
+
 const EntryForm = () => {
+	const [uploadinImage, setUploadingImage] = useState(false);
+	const [pictureError, setPictureError] = useState("");
+	const [imageUrl, setImageUrl] = useState("");
+
+	const entryService = new FormService();
+	const history = useHistory();
+
 	return (
 		<div className="formContainer">
 			<Formik
@@ -103,10 +128,10 @@ const EntryForm = () => {
 				}}
 				validationSchema={validationSchema}
 				onSubmit={(values, { setSubmitting }) => {
-					setTimeout(() => {
-						alert(JSON.stringify(values, null, 2));
-						setSubmitting(false);
-					}, 400);
+					entryService
+						.newEntry(values)
+						.then((response) => history.push("/success"))
+						.catch((err) => console.log("ERRROOOOOOOR", err));
 				}}
 			>
 				<Form>
@@ -163,6 +188,10 @@ const EntryForm = () => {
 						<option value="Alcampo">Alcampo</option>
 						<option value="Carrefour">Carrefour</option>
 					</MySelect>
+
+					<Uploader setImageUrl={setImageUrl} />
+
+					<MyUrl name="imageUrl" type="hidden" imageurl={imageUrl} />
 
 					<MyCheckbox name="acceptedTerms">
 						Acepto los términos y condiciones
