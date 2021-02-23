@@ -40,7 +40,7 @@ const validationSchema = Yup.object().shape({
 	phone: Yup.string().trim().min(9, "Demasiado Corto"),
 	code: Yup.string()
 		.length(7, "Longitud de código incorrecta")
-		.matches(/^JM[A-Z0-9]{5}/, "Código inválido"),
+		.matches(/^JG[A-Z0-9]{5}/, "Código inválido"),
 	boughtAt: Yup.string(),
 	acceptedTerms: Yup.boolean()
 		.required("Campo Obligatorio")
