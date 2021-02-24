@@ -105,7 +105,7 @@ const MyUrl = (props) => {
 
 const EntryForm = () => {
 	const [uploadinImage, setUploadingImage] = useState(false);
-	const [pictureError, setPictureError] = useState("");
+	const [submitError, setSubmitError] = useState("");
 	const [imageUrl, setImageUrl] = useState("");
 
 	const entryService = new FormService();
@@ -131,7 +131,10 @@ const EntryForm = () => {
 					entryService
 						.newEntry(values)
 						.then((response) => history.push("/success"))
-						.catch((err) => console.log("ERRROOOOOOOR", err));
+						.catch((err) => {
+							console.log(err.response.data.error);
+							setSubmitError(err.response.data.error)
+						});
 				}}
 			>
 				<Form>
@@ -198,6 +201,7 @@ const EntryForm = () => {
 					</MyCheckbox>
 
 					<button type="submit">Enviar</button>
+					{submitError && <p>{submitError}</p>}
 				</Form>
 			</Formik>
 		</div>
