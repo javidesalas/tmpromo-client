@@ -19,11 +19,9 @@ html {
 	display: block;
 	font-family: meister-regular, sans-serif;
 	font-size: 10px;
-	height: 764px;
 	line-height: 11.5px;
 	text-rendering: optimizelegibility;
 	text-size-adjust: 100%;
-	width: 557px;
 	-webkit-font-smoothing: antialiased;
 	-webkit-locale: "es-ES";
 }
@@ -40,7 +38,6 @@ body {
 	font-family: meister-regular, sans-serif;
 	font-size: 13px;
 	font-weight: 400;
-	height: 3049px;
 	letter-spacing: 0.39px;
 	line-height: 14.95px;
 	margin-bottom: 0px;
@@ -48,6 +45,7 @@ body {
 	margin-right: 0px;
 	margin-top: 0px;
 	min-height: 100%;
+	max-height: 1335px;
 	position: relative;
 	text-rendering: optimizelegibility;
 	text-size-adjust: 100%;
@@ -61,10 +59,6 @@ form {
 	justify-content: center;
 	flex-direction: column;
 	width: 100%;
-}
-
-input[type="file" i] {
-	background-color: aqua;
 }
 
 .formContainer {
@@ -90,7 +84,6 @@ input[type="file" i] {
 	font-family: meister-regular, sans-serif;
 	font-size: 13px;
 	font-weight: 400;
-	height: 669px;
 	letter-spacing: 0.39px;
 	line-height: 14.95px;
 	margin-bottom: 0px;
@@ -102,7 +95,7 @@ input[type="file" i] {
 	outline-width: 0px;
 	text-rendering: optimizelegibility;
 	text-size-adjust: 100%;
-
+	max-width: 557px;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -150,6 +143,23 @@ input[type="file" i] {
 	margin: 0.5rem 0 0.1rem;
 	color: rgb(233, 227, 199);
 }
+
+.form_input[value=""] {
+	color:rgba(233, 227, 199, 0.3)
+}
+
+
+
+.form_input:focus, .form_input:active  {
+	outline:none;
+    border: 2px solid rgb(221, 90, 18);
+}
+
+.form_input::-webkit-calendar-picker-indicator {
+	filter: invert(100%) sepia() saturate(250%) hue-rotate(0deg);
+}
+
+
 
 .form_checkRow {
 	margin: 0 0 1rem;
@@ -248,6 +258,7 @@ input[type="file" i] {
 }
 
 .filelabel:focus {
-	outline: 1px dotted #000;
-	outline: -webkit-focus-ring-color auto 5px;
+	outline:none;
+    border: 2px solid rgb(221, 90, 18);
+
 }

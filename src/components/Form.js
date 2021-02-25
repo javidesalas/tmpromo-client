@@ -124,7 +124,7 @@ const EntryForm = () => {
 
 	return (
 		<div className="formContainer">
-			<span class="form_error">Todos los campos son obligatorios </span>
+			<span className="form_error">Todos los campos son obligatorios </span>
 			<Formik
 				initialValues={{
 					firstName: "",
@@ -167,7 +167,7 @@ const EntryForm = () => {
 						label="Fecha de Nacimiento"
 						name="birthDate"
 						type="date"
-						placeholder="Tus fecha de nacimiento"
+						placeholder="Tu fecha de nacimiento"
 					/>
 					<MyTextInput
 						label="Código Postal"
@@ -193,14 +193,14 @@ const EntryForm = () => {
 						type="text"
 						placeholder="Tu código de participación"
 					/>
-					<MySelect label="Comprado En:" name="boughtAt">
-						<option value="" disabled>
+					<MySelect label="Comprado En:" name="boughtAt" >
+						<option value=""  disabled>
 							Elige el punto de venta
 						</option>
 						<option value="Alcampo">Alcampo</option>
 						<option value="Carrefour">Carrefour</option>
 					</MySelect>
-					<Uploader setImageUrl={setImageUrl} imageUrl={imageUrl}/>
+					<Uploader setImageUrl={setImageUrl} imageUrl={imageUrl} />
 					<div className="uploaderPlaceholder"></div>
 
 					<MyUrl name="imageUrl" type="hidden" imageurl={imageUrl} />
@@ -215,7 +215,6 @@ const EntryForm = () => {
 					</button>
 				</Form>
 			</Formik>
-
 		</div>
 	);
 };
