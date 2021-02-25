@@ -144,9 +144,9 @@ form {
 	color: rgb(233, 227, 199);
 }
 
-.form_input[value=""] {
+/* .form_input[value=""] {
 	color:rgba(233, 227, 199, 0.3)
-}
+} */
 
 
 
