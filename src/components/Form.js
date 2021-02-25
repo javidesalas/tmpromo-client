@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { Formik, Form, useFormikContext, useField } from "formik";
 import * as Yup from "yup";
+import "./main.css";
 
 import FormService from "../services/form.services";
 import Uploader from "./Uploader";
@@ -12,11 +13,11 @@ const validationSchema = Yup.object().shape({
 	firstName: Yup.string()
 		.min(2, "Demasiado Corto")
 		.max(50, "Demasiado Largo")
-		.required("Campo Obligatorio"),
+		.required(""),
 	lastName: Yup.string()
 		.min(2, "Demasiado Corto")
 		.max(50, "Demasiado Largo")
-		.required("Campo Obligatorio"),
+		.required(""),
 	birthDate: Yup.date()
 		.required()
 		.test(
@@ -31,30 +32,32 @@ const validationSchema = Yup.object().shape({
 	zipCode: Yup.number()
 		.min(1000, "Código Postal No Válido")
 		.max(52999, "Código Postal No Válido")
-		.required("Campo Obligatorio"),
+		.required("Campo obligatorio"),
 	email: Yup.string()
 		.trim()
 		.lowercase()
-		.email("Email No Válido")
-		.required("Campo Obligatorio"),
-	phone: Yup.string().trim().min(9, "Demasiado Corto"),
+		.email("Email inválido")
+		.required("Campo obligatorio"),
+	phone: Yup.string().trim().min(9, "Teléfono incorrecto"),
 	code: Yup.string()
 		.length(7, "Longitud de código incorrecta")
 		.matches(/^JG[A-Z0-9]{5}/, "Código inválido"),
 	boughtAt: Yup.string(),
 	acceptedTerms: Yup.boolean()
-		.required("Campo Obligatorio")
+		.required("Campo obligatorio")
 		.oneOf([true], "Debes aceptar los términos y condiciones"),
 });
 
 const MyTextInput = ({ label, ...props }) => {
 	const [field, meta] = useField(props);
 	return (
-		<div>
-			<label htmlFor={props.id || props.name}>{label}</label>
-			<input className="text-input" {...field} {...props} />
+		<div className="form_row">
+			<label className="form_label" htmlFor={props.id || props.name}>
+				{label}
+			</label>
+			<input className="form_input" {...field} {...props} />
 			{meta.touched && meta.error ? (
-				<div className="error">{meta.error}</div>
+				<div className="form_error">{meta.error}</div>
 			) : null}
 		</div>
 	);
@@ -64,12 +67,18 @@ const MyCheckbox = ({ children, ...props }) => {
 	const [field, meta] = useField({ ...props, type: "checkbox" });
 	return (
 		<div>
-			<label className="checkbox-input">
-				<input type="checkbox" {...field} {...props} />
-				{children}
-			</label>
+			<div className="form_checkRow">
+				<input
+					className="form_input_checkbox "
+					type="checkbox"
+					{...field}
+					{...props}
+				/>
+
+				<label className="checkbox-input">{children}</label>
+			</div>
 			{meta.touched && meta.error ? (
-				<div className="error">{meta.error}</div>
+				<div className="form_error">{meta.error}</div>
 			) : null}
 		</div>
 	);
@@ -78,11 +87,13 @@ const MyCheckbox = ({ children, ...props }) => {
 const MySelect = ({ label, ...props }) => {
 	const [field, meta] = useField(props);
 	return (
-		<div>
-			<label htmlFor={props.id || props.name}>{label}</label>
-			<select {...field} {...props} />
+		<div className="form_row">
+			<label className="form_label" htmlFor={props.id || props.name}>
+				{label}
+			</label>
+			<select className="form_input" {...field} {...props} />
 			{meta.touched && meta.error ? (
-				<div className="error">{meta.error}</div>
+				<div className="form_error">{meta.error}</div>
 			) : null}
 		</div>
 	);
@@ -113,11 +124,12 @@ const EntryForm = () => {
 
 	return (
 		<div className="formContainer">
+			<span class="form_error">Todos los campos son obligatorios </span>
 			<Formik
 				initialValues={{
 					firstName: "",
 					lastName: "",
-					birthDate: new Date(),
+					birthDate: "",
 					zipCode: "",
 					email: "",
 					phone: "",
@@ -133,9 +145,10 @@ const EntryForm = () => {
 						.then((response) => history.push("/success"))
 						.catch((err) => {
 							console.log(err.response.data.error);
-							setSubmitError(err.response.data.error)
+							setSubmitError(err.response.data.error);
 						});
 				}}
+				validateOnChange="false"
 			>
 				<Form>
 					<MyTextInput
@@ -163,12 +176,6 @@ const EntryForm = () => {
 						placeholder="Tu código postal"
 					/>
 					<MyTextInput
-						label="Código Postal"
-						name="zipCode"
-						type="number"
-						placeholder="Tu código postal"
-					/>
-					<MyTextInput
 						label="Email"
 						name="email"
 						type="text"
@@ -187,12 +194,14 @@ const EntryForm = () => {
 						placeholder="Tu código de participación"
 					/>
 					<MySelect label="Comprado En:" name="boughtAt">
-						<option value="">Elige el punto de venta</option>
+						<option value="" disabled>
+							Elige el punto de venta
+						</option>
 						<option value="Alcampo">Alcampo</option>
 						<option value="Carrefour">Carrefour</option>
 					</MySelect>
-
-					<Uploader setImageUrl={setImageUrl} />
+					<Uploader setImageUrl={setImageUrl} imageUrl={imageUrl}/>
+					<div className="uploaderPlaceholder"></div>
 
 					<MyUrl name="imageUrl" type="hidden" imageurl={imageUrl} />
 
@@ -200,10 +209,13 @@ const EntryForm = () => {
 						Acepto los términos y condiciones
 					</MyCheckbox>
 
-					<button type="submit">Enviar</button>
-					{submitError && <p>{submitError}</p>}
+					{submitError && <p className="form_error-submit">{submitError}</p>}
+					<button className="form_submitBtn" type="submit">
+						Enviar
+					</button>
 				</Form>
 			</Formik>
+
 		</div>
 	);
 };
