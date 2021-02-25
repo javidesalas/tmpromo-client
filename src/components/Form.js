@@ -13,13 +13,13 @@ const validationSchema = Yup.object().shape({
 	firstName: Yup.string()
 		.min(2, "Demasiado Corto")
 		.max(50, "Demasiado Largo")
-		.required(""),
+		.required("Campo obligatorio"),
 	lastName: Yup.string()
 		.min(2, "Demasiado Corto")
 		.max(50, "Demasiado Largo")
-		.required(""),
+		.required("Campo obligatorio"),
 	birthDate: Yup.date()
-		.required()
+		.required("Campo obligatorio")
 		.test(
 			"age",
 			"Debes ser mayor de 18 años para participar",
@@ -193,8 +193,8 @@ const EntryForm = () => {
 						type="text"
 						placeholder="Tu código de participación"
 					/>
-					<MySelect label="Comprado En:" name="boughtAt" >
-						<option value=""  disabled>
+					<MySelect label="Comprado En:" name="boughtAt">
+						<option value="" disabled>
 							Elige el punto de venta
 						</option>
 						<option value="Alcampo">Alcampo</option>
