@@ -115,7 +115,7 @@ const MyUrl = (props) => {
 };
 
 const EntryForm = () => {
-	const [uploadinImage, setUploadingImage] = useState(false);
+	const [uploadingImage, setUploadingImage] = useState(false);
 	const [submitError, setSubmitError] = useState("");
 	const [imageUrl, setImageUrl] = useState("");
 
@@ -200,7 +200,12 @@ const EntryForm = () => {
 						<option value="Alcampo">Alcampo</option>
 						<option value="Carrefour">Carrefour</option>
 					</MySelect>
-					<Uploader setImageUrl={setImageUrl} imageUrl={imageUrl} />
+					<Uploader
+						imageUrl={imageUrl}
+						setImageUrl={setImageUrl}
+						uploadingImage={uploadingImage}
+						setUploadingImage={setUploadingImage}
+					/>
 					<div className="uploaderPlaceholder"></div>
 
 					<MyUrl name="imageUrl" type="hidden" imageurl={imageUrl} />
@@ -210,7 +215,7 @@ const EntryForm = () => {
 					</MyCheckbox>
 
 					{submitError && <p className="form_error-submit">{submitError}</p>}
-					<button className="form_submitBtn" type="submit">
+					<button className="form_submitBtn" type="submit" disabled={uploadingImage}>
 						Enviar
 					</button>
 				</Form>

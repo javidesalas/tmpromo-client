@@ -95,6 +95,7 @@ form {
 	outline-width: 0px;
 	text-rendering: optimizelegibility;
 	text-size-adjust: 100%;
+	width: 100%;
 	max-width: 557px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -157,6 +158,12 @@ form {
 
 .form_input::-webkit-calendar-picker-indicator {
 	filter: invert(100%) sepia() saturate(250%) hue-rotate(0deg);
+}
+
+.form_input::-webkit-inner-spin-button, 
+.form_input::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 
