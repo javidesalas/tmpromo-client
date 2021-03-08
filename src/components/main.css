@@ -3,14 +3,14 @@ html {
 
 	background-attachment: scroll, scroll, scroll, scroll;
 	background-clip: border-box, border-box, border-box, border-box;
-	background-color: rgb(25, 62, 15);
-	background-image: linear-gradient(
+	background-color: transparent;
+	/* background-image: linear-gradient(
 			to right,
 			rgba(0, 0, 0, 0.6),
 			rgba(0, 0, 0, 0) 40%
 		),
 		linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 40%),
-		url(https://www.jagermeister.com/client/e25c53f….jpg), none;
+		url(https://www.jagermeister.com/client/e25c53f….jpg), none; */
 	background-origin: padding-box, padding-box, padding-box, padding-box;
 	background-position-x: 0%, 0%, 0%, 0%;
 	background-position-y: 0%, 0%, 0%, 0%;
@@ -46,7 +46,7 @@ body {
 	margin-top: 0px;
 	min-height: 100%;
 	max-height: 1335px;
-	position: relative;
+	position: absolute;
 	text-rendering: optimizelegibility;
 	text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
@@ -87,7 +87,7 @@ form {
 	letter-spacing: 0.39px;
 	line-height: 14.95px;
 	margin-bottom: 0px;
-	margin-left: 20px;
+	margin-left: 0px;
 	margin-right: 0px;
 	margin-top: 0px;
 	outline-color: rgb(233, 227, 199);
@@ -96,6 +96,7 @@ form {
 	text-rendering: optimizelegibility;
 	text-size-adjust: 100%;
 	width: 100%;
+	height: 100%;
 	max-width: 557px;
 	-webkit-font-smoothing: antialiased;
 }
@@ -149,24 +150,21 @@ form {
 	color:rgba(233, 227, 199, 0.3)
 } */
 
-
-
-.form_input:focus, .form_input:active  {
-	outline:none;
-    border: 2px solid rgb(221, 90, 18);
+.form_input:focus,
+.form_input:active {
+	outline: none;
+	border: 2px solid rgb(221, 90, 18);
 }
 
 .form_input::-webkit-calendar-picker-indicator {
 	filter: invert(100%) sepia() saturate(250%) hue-rotate(0deg);
 }
 
-.form_input::-webkit-inner-spin-button, 
-.form_input::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+.form_input::-webkit-inner-spin-button,
+.form_input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
-
-
 
 .form_checkRow {
 	margin: 0 0 1rem;
@@ -265,7 +263,6 @@ form {
 }
 
 .filelabel:focus {
-	outline:none;
-    border: 2px solid rgb(221, 90, 18);
-
+	outline: none;
+	border: 2px solid rgb(221, 90, 18);
 }
