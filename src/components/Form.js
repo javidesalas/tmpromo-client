@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { Formik, Form, useFormikContext, useField } from "formik";
 import * as Yup from "yup";
-import "./main.css";
+
 
 import FormService from "../services/form.services";
 import Uploader from "./Uploader";
-//import "./styles.css";
+
 
 const validationSchema = Yup.object().shape({
 	firstName: Yup.string()
@@ -194,11 +194,33 @@ const EntryForm = () => {
 						placeholder="Tu código de participación"
 					/>
 					<MySelect label="Comprado En:" name="boughtAt">
-						<option value="" disabled>
+						<option value="" disabled style={{ color: "#193B01" }}>
 							Elige el punto de venta
 						</option>
-						<option value="Alcampo">Alcampo</option>
-						<option value="Carrefour">Carrefour</option>
+						<option value="Ahorramás" style={{ color: "#193B01" }}>
+							Ahorramás
+						</option>
+						<option value="Alcampo" style={{ color: "#193B01" }}>
+							Alcampo
+						</option>
+						<option value="Bon Preu" style={{ color: "#193B01" }}>
+							Bon Preu
+						</option>
+						<option value="Caprabo" style={{ color: "#193B01" }}>
+							Caprabo
+						</option>
+						<option value="Carrefour" style={{ color: "#193B01" }}>
+							Carrefour
+						</option>
+						<option value="Eroski" style={{ color: "#193B01" }}>
+							Eroski
+						</option>
+						<option value="ECI" style={{ color: "#193B01" }}>
+							El Corte Inglés, Supercor, Hipercor
+						</option>
+						<option value="Otros" style={{ color: "#193B01" }}>
+							Otros
+						</option>
 					</MySelect>
 					<Uploader
 						imageUrl={imageUrl}
@@ -215,7 +237,11 @@ const EntryForm = () => {
 					</MyCheckbox>
 
 					{submitError && <p className="form_error-submit">{submitError}</p>}
-					<button className="form_submitBtn" type="submit" disabled={uploadingImage}>
+					<button
+						className="form_submitBtn"
+						type="submit"
+						disabled={uploadingImage}
+					>
 						Enviar
 					</button>
 				</Form>

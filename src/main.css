@@ -266,3 +266,27 @@ form {
 	outline: none;
 	border: 2px solid rgb(221, 90, 18);
 }
+
+.success-container {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.success-image {
+	width: 95vw;
+	max-width: 400px;
+	
+}
+.success-text {
+	margin-top: 5rem;
+	width: 95vw;
+	max-width: 650px;
+	border: 2px solid rgb(221, 90, 18);
+	padding: 0 2rem;
+	font-size: 2rem;
+	line-height: 2.5rem;
+	color: rgb(233, 227, 199)
+}

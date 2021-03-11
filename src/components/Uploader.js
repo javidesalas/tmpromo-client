@@ -25,11 +25,11 @@ const Uploader = ({
 	return (
 		<div>
 			<label htmlFor="picture" className="filelabel">
-				{imageUrl ? "Foto cargada" : "Carga una foto del ticket de compra"}{" "}
+				{imageUrl ? "Ticket Escaneado" : "Carga una foto del ticket de compra"}{" "}
 			</label>
 			{uploadingImage && (
 				<span className="form_error">
-					Estamos cargando tu ticket, espera unos instantes...
+					Estamos escaneando tu ticket, espera unos segundos...
 				</span>
 			)}
 

@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Form from "./components/Form";
 import Success from "./components/Success";
+import "./main.css";
 
 const App = () => {
 	return (
