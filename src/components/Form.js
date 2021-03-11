@@ -197,7 +197,7 @@ const EntryForm = () => {
 						<option value="" disabled style={{ color: "#193B01" }}>
 							Elige el punto de venta
 						</option>
-						<option value="Ahorramás" style={{ color: "#193B01" }}>
+						<option value="Ahorramas" style={{ color: "#193B01" }}>
 							Ahorramás
 						</option>
 						<option value="Alcampo" style={{ color: "#193B01" }}>
