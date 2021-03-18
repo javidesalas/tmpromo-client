@@ -1,6 +1,11 @@
 @font-face {
     font-family: "meister-regular";
-    src: url("https://www.jagermeister.com/client/273590e317a7769397c4cd9afea27bcd.woff") format('woff');
+    src: url("./fonts/meister-regular.woff") format('woff');
+}
+
+@font-face {
+    font-family: "meister";
+    src: url("./fonts/meister.woff") format('woff');
 }
 
 
