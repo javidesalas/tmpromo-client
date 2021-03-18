@@ -283,7 +283,7 @@ form {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: rgba(40, 71, 12, 0.5);
+	
 }
 .success-image {
 	width: 95vw;
@@ -295,6 +295,7 @@ form {
 	width: 95vw;
 	max-width: 650px;
 	border: 2px solid rgb(221, 90, 18);
+	background: rgba(40, 71, 12, 0.5);
 	padding: 0 2rem;
 	font-size: 2rem;
 	line-height: 2.5rem;
