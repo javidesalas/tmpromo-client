@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { Formik, Form, useFormikContext, useField } from "formik";
@@ -103,7 +103,7 @@ const MyUrl = (props) => {
 	const { setFieldValue } = useFormikContext();
 	const [field, meta] = useField(props);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setFieldValue(props.name, props.imageurl);
 	}, [props.imageurl, props.name]);
 
@@ -114,16 +114,46 @@ const MyUrl = (props) => {
 	);
 };
 
+
+
 const EntryForm = () => {
 	const [uploadingImage, setUploadingImage] = useState(false);
 	const [submitError, setSubmitError] = useState("");
 	const [imageUrl, setImageUrl] = useState("");
+	// const [formHeight, setFormHeight] = useState(null)
 
 	const entryService = new FormService();
 	const history = useHistory();
 
+	// const handleChange = () => {
+	// 	if (window) {
+	// 		const height = document.getElementById("wrapper").scrollHeight;
+	// 		if (height !== formHeight) {
+	// 			setFormHeight(height);
+	// 		}
+	// 	}
+	// };
+
+	// useEffect(() => {
+		
+	// 	window &&
+	// 		window.addEventListener(
+	// 			"message",
+	// 			(message) => {
+	// 				if (message.data === "loaded") {
+	// 					const height = formHeight ? formHeight : document.getElementById("wrapper").scrollHeight;
+						
+	// 					console.log(height)
+	// 					window.parent.postMessage(height, "https://www.jagermeister.com");
+						
+	// 				}
+	// 			},
+	// 			false
+	// 		);
+	// },[formHeight])
+
 	return (
-		<div className="formContainer">
+		<div className="formContainer" id="wrapper">
 			<span className="form_error">Todos los campos son obligatorios </span>
 			<Formik
 				initialValues={{
@@ -149,6 +179,7 @@ const EntryForm = () => {
 						});
 				}}
 				validateOnChange="false"
+				// onChange = {handleChange}
 			>
 				<Form>
 					<MyTextInput
