@@ -4,10 +4,8 @@ import ReactDOM from "react-dom";
 import { Formik, Form, useFormikContext, useField } from "formik";
 import * as Yup from "yup";
 
-
 import FormService from "../services/form.services";
 import Uploader from "./Uploader";
-
 
 const validationSchema = Yup.object().shape({
 	firstName: Yup.string()
@@ -46,6 +44,7 @@ const validationSchema = Yup.object().shape({
 	acceptedTerms: Yup.boolean()
 		.required("Campo obligatorio")
 		.oneOf([true], "Debes aceptar los términos y condiciones"),
+	imageUrl: Yup.string().required(),
 });
 
 const MyTextInput = ({ label, ...props }) => {
@@ -114,8 +113,6 @@ const MyUrl = (props) => {
 	);
 };
 
-
-
 const EntryForm = () => {
 	const [uploadingImage, setUploadingImage] = useState(false);
 	const [submitError, setSubmitError] = useState("");
@@ -135,17 +132,17 @@ const EntryForm = () => {
 	// };
 
 	// useEffect(() => {
-		
+
 	// 	window &&
 	// 		window.addEventListener(
 	// 			"message",
 	// 			(message) => {
 	// 				if (message.data === "loaded") {
 	// 					const height = formHeight ? formHeight : document.getElementById("wrapper").scrollHeight;
-						
+
 	// 					console.log(height)
 	// 					window.parent.postMessage(height, "https://www.jagermeister.com");
-						
+
 	// 				}
 	// 			},
 	// 			false
