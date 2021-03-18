@@ -1,14 +1,12 @@
 @font-face {
-    font-family: "meister-regular";
-    src: url("./fonts/meister-regular.woff") format('woff');
+	font-family: "meister-regular";
+	src: url("./fonts/meister-regular.woff") format("woff");
 }
 
 @font-face {
-    font-family: "meister";
-    src: url("./fonts/meister.woff") format('woff');
+	font-family: "meister";
+	src: url("./fonts/meister.woff") format("woff");
 }
-
-
 
 html {
 	box-sizing: border-box;
@@ -269,9 +267,10 @@ form {
 	text-transform: uppercase;
 	display: block;
 	padding: 2rem;
-	line-height: 1px;
-	height: 35px;
-	margin: auto 00 2rem;
+	line-height: 2rem;
+	min-height: 35px;
+	text-align: center;
+	margin: auto 00 1rem;
 	color: rgb(233, 227, 199);
 }
 
@@ -288,12 +287,10 @@ form {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	
 }
 .success-image {
 	width: 95vw;
 	max-width: 300px;
-	
 }
 .success-text {
 	margin-top: 5rem;
@@ -304,5 +301,5 @@ form {
 	padding: 0 2rem;
 	font-size: 2rem;
 	line-height: 2.5rem;
-	color: rgb(233, 227, 199)
+	color: rgb(233, 227, 199);
 }
