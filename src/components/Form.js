@@ -261,7 +261,10 @@ const EntryForm = () => {
 					<MyUrl name="imageUrl" type="hidden" imageurl={imageUrl} />
 
 					<MyCheckbox name="acceptedTerms">
-						Acepto los términos y condiciones
+						Acepto los{" "}
+						<a href="https://www.jagermeister.com/es-ES/bbllsorteo56" target="_blank" rel="noopener noreferrer" className="link">
+							términos y condiciones
+						</a>
 					</MyCheckbox>
 
 					{submitError && <p className="form_error-submit">{submitError}</p>}
