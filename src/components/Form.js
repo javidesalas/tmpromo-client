@@ -38,8 +38,8 @@ const validationSchema = Yup.object().shape({
 		.required("Campo obligatorio"),
 	phone: Yup.string().trim().min(9, "Teléfono incorrecto"),
 	code: Yup.string()
-		.length(7, "Longitud de código incorrecta")
-		.matches(/^JG[A-Z0-9]{5}/, "Código inválido"),
+		.length(8, "Longitud de código incorrecta")
+		.matches(/^JG[A-Z0-9]{5}W/, "Código inválido"),
 	boughtAt: Yup.string().required("Por favor elige una opción"),
 	acceptedTerms: Yup.boolean()
 		.required("Campo obligatorio")
@@ -262,7 +262,12 @@ const EntryForm = () => {
 
 					<MyCheckbox name="acceptedTerms">
 						Acepto los{" "}
-						<a href="https://www.jagermeister.com/es-ES/bbllsorteo56" target="_blank" rel="noopener noreferrer" className="link">
+						<a
+							href="https://www.jagermeister.com/es-ES/bbllsorteo56"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="link"
+						>
 							términos y condiciones
 						</a>
 					</MyCheckbox>
