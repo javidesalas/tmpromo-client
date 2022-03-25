@@ -225,26 +225,29 @@ const EntryForm = () => {
 						<option value="" disabled style={{ color: "#193B01" }}>
 							Elige el punto de venta
 						</option>
-						<option value="Ahorramas" style={{ color: "#193B01" }}>
-							Ahorramás
-						</option>
 						<option value="Alcampo" style={{ color: "#193B01" }}>
 							Alcampo
-						</option>
-						<option value="Bon Preu" style={{ color: "#193B01" }}>
-							Bon Preu
-						</option>
-						<option value="Caprabo" style={{ color: "#193B01" }}>
-							Caprabo
 						</option>
 						<option value="Carrefour" style={{ color: "#193B01" }}>
 							Carrefour
 						</option>
-						<option value="Eroski" style={{ color: "#193B01" }}>
-							Eroski
+						<option value="Consum" style={{ color: "#193B01" }}>
+							Consum
+						</option>
+						<option value="Dia" style={{ color: "#193B01" }}>
+							DIA
 						</option>
 						<option value="ECI" style={{ color: "#193B01" }}>
 							El Corte Inglés, Supercor, Hipercor
+						</option>
+						<option value="Eroski" style={{ color: "#193B01" }}>
+							Eroski
+						</option>
+						<option value="Froiz" style={{ color: "#193B01" }}>
+							Froiz
+						</option>
+						<option value="Gadisa" style={{ color: "#193B01" }}>
+							Gadisa
 						</option>
 						<option value="Otros" style={{ color: "#193B01" }}>
 							Otros
@@ -263,7 +266,7 @@ const EntryForm = () => {
 					<MyCheckbox name="acceptedTerms">
 						Acepto los{" "}
 						<a
-							href="https://www.jagermeister.com/es-ES/bbllsorteo56"
+							href="https://www.jagermeister.com/es-ES/BBLL-Sorteo2022"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="link"
