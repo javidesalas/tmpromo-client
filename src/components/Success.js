@@ -1,10 +1,9 @@
 import React from 'react';
-import OneBottleTm from "./one_bottleTM.png";
+
 
 const Success = () => {
     return (
 			<div className="success-container">
-				{/* <img className="success-img" src={OneBottleTm} alt="Ice Cold Machine" /> */}
 				<div className="success-text">
 					<p>
 						EL REGISTRO SE HA COMPLETADO CON ÉXITO Y NUESTRO EQUIPO ESTÁ
