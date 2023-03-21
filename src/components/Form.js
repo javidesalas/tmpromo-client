@@ -260,7 +260,7 @@ const EntryForm = () => {
 					<MyCheckbox name="acceptedTerms">
 						Acepto los{" "}
 						<a
-							href="https://www.jagermeister.com/es-ES/BBLL-Sorteo2022"
+							href="https://www.jagermeister.com/es-ES/BBLLSorteo2023"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="link"
