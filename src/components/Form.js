@@ -39,7 +39,7 @@ const validationSchema = Yup.object().shape({
 	phone: Yup.string().trim().min(9, "Teléfono incorrecto"),
 	code: Yup.string()
 		.length(8, "Longitud de código incorrecta")
-		.matches(/^JM[A-Z0-9]{5}X/, "Código inválido"),
+		.matches(/^J[A-Z0-9]{6}M/, "Código inválido"),
 	boughtAt: Yup.string().required("Por favor elige una opción"),
 	acceptedTerms: Yup.boolean()
 		.required("Campo obligatorio")
@@ -225,9 +225,6 @@ const EntryForm = () => {
 						<option value="" disabled style={{ color: "#193B01" }}>
 							Elige el punto de venta
 						</option>
-						<option value="Ahorramas" style={{ color: "#193B01" }}>
-							Ahorramás
-						</option>
 						<option value="Alcampo" style={{ color: "#193B01" }}>
 							Alcampo
 						</option>
@@ -242,6 +239,9 @@ const EntryForm = () => {
 						</option>
 						<option value="Eroski" style={{ color: "#193B01" }}>
 							Eroski
+						</option>
+						<option value="Ahorramas" style={{ color: "#193B01" }}>
+							Grupo Ahorramás, S.A.
 						</option>
 						<option value="Otros" style={{ color: "#193B01" }}>
 							Otros
